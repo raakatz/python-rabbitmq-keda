@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer
+spec:
+  selector:
+    matchLabels:
+      app: consumer
+  template:
+    metadata:
+      labels:
+        app: consumer
+    spec:
+      containers:
+      - image: docker.io/raakatz/python-rabbitmq:consumer
+        name: python-rabbitmq
+        resources:
+          limits:
+            cpu: 30m
